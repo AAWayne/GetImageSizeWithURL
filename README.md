@@ -5,10 +5,10 @@
 > 先喳喳两句：我不是原创，主要是为了做一个笔记，原作者的方法有些许瑕疵，不过在它得评论区已经有热心网友给出了完美的解决方案，所以我就借此整理到我的简书，希望大家见怪莫怪，这个方法确实挺有效的。[原文链接](http://www.jianshu.com/p/9984c37f3f54)
 
 
-##### 一行代码获取图片尺寸：
+##### 导入.h头文件后一行代码调用 - 获取图片尺寸：
 ```
-CGSize size = [UIImage getImageSizeWithURL:@"http://upload-images.jianshu.io/upload_images/2822163-70ac87aa2d2199d1.jpg"];
-NSLog(@"%f", size.height);
+    CGSize size = [UIImage getImageSizeWithURL:[NSURL URLWithString:@"http://upload-images.jianshu.io/upload_images/2822163-70ac87aa2d2199d1.jpg"]];
+    NSLog(@"%f", size.height);
 ```
 
 #### 在使用之前还是要先引入系统的ImageIO.framework库
@@ -34,49 +34,49 @@ NSLog(@"%f", size.height);
 @implementation UIImage (ImgSize)
 
 /**
-*  根据图片url获取网络图片尺寸
-*/
+ *  根据图片url获取网络图片尺寸
+ */
 + (CGSize)getImageSizeWithURL:(id)URL{
-NSURL * url = nil;
-if ([URL isKindOfClass:[NSURL class]]) {
-url = URL;
-}
-if ([URL isKindOfClass:[NSString class]]) {
-url = [NSURL URLWithString:URL];
-}
-if (!URL) {
-return CGSizeZero;
-}
-CGImageSourceRef imageSourceRef = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
-CGFloat width = 0, height = 0;
-if (imageSourceRef) {
-CFDictionaryRef imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSourceRef, 0, NULL);
-//以下是对手机32位、64位的处理（由网友评论区拿到的：小怪兽饲养猿）
-if (imageProperties != NULL) {
-CFNumberRef widthNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelWidth);
+    NSURL * url = nil;
+    if ([URL isKindOfClass:[NSURL class]]) {
+        url = URL;
+    }
+    if ([URL isKindOfClass:[NSString class]]) {
+        url = [NSURL URLWithString:URL];
+    }
+    if (!URL) {
+        return CGSizeZero;
+    }
+    CGImageSourceRef imageSourceRef = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
+    CGFloat width = 0, height = 0;
+    if (imageSourceRef) {
+        CFDictionaryRef imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSourceRef, 0, NULL);
+        //以下是对手机32位、64位的处理（由网友评论区拿到的：小怪兽饲养猿）
+        if (imageProperties != NULL) {
+            CFNumberRef widthNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelWidth);
 #if defined(__LP64__) && __LP64__
-if (widthNumberRef != NULL) {
-CFNumberGetValue(widthNumberRef, kCFNumberFloat64Type, &width);
-}
-CFNumberRef heightNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
-if (heightNumberRef != NULL) {
-CFNumberGetValue(heightNumberRef, kCFNumberFloat64Type, &height);
-}
+            if (widthNumberRef != NULL) {
+                CFNumberGetValue(widthNumberRef, kCFNumberFloat64Type, &width);
+            }
+            CFNumberRef heightNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
+            if (heightNumberRef != NULL) {
+                CFNumberGetValue(heightNumberRef, kCFNumberFloat64Type, &height);
+            }
 #else
-if (widthNumberRef != NULL) {
-CFNumberGetValue(widthNumberRef, kCFNumberFloat32Type, &width);
-}
-CFNumberRef heightNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
-if (heightNumberRef != NULL) {
-CFNumberGetValue(heightNumberRef, kCFNumberFloat32Type, &height);
-}
+            if (widthNumberRef != NULL) {
+                CFNumberGetValue(widthNumberRef, kCFNumberFloat32Type, &width);
+            }
+            CFNumberRef heightNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
+            if (heightNumberRef != NULL) {
+                CFNumberGetValue(heightNumberRef, kCFNumberFloat32Type, &height);
+            }
 #endif
-CFRelease(imageProperties);
-}
-
-CFRelease(imageSourceRef);
-}
-return CGSizeMake(width, height);
+            CFRelease(imageProperties);
+        }
+        
+        CFRelease(imageSourceRef);
+    }
+    return CGSizeMake(width, height);
 }
 
 @end
