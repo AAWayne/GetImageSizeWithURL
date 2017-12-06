@@ -2,7 +2,7 @@
 
 #### 根据网络图片URL链接获取图片的尺寸（宽高）
 
-> 先喳喳两句：我不是原创，主要是为了做一个笔记，原作者的方法有些许瑕疵，不过在它得评论区已经有热心网友给出了完美的解决方案，所以我就借此整理到我的简书，希望大家见怪莫怪，这个方法确实挺有效的。[原文链接](http://www.jianshu.com/p/9984c37f3f54)
+> 先喳喳两句：我不是原创，主要是为了做一个笔记，原作者的方法有些许瑕疵，不过在它得评论区已经有热心网友给出了完美的解决方案，所以我就借此整理到我的简书，希望大家见怪莫怪，这个方法确实挺有效的。[小怪兽饲养猿](http://www.jianshu.com/p/9984c37f3f54)
 
 
 ##### 导入.h头文件后一行代码调用 - 获取图片尺寸：
@@ -51,7 +51,7 @@
     CGFloat width = 0, height = 0;
     if (imageSourceRef) {
         CFDictionaryRef imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSourceRef, 0, NULL);
-        //以下是对手机32位、64位的处理（由网友评论区拿到的：小怪兽饲养猿）
+        //对手机32位、64位的处理
         if (imageProperties != NULL) {
             CFNumberRef widthNumberRef = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelWidth);
 #if defined(__LP64__) && __LP64__
