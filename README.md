@@ -135,17 +135,18 @@ if (![[NSUserDefaults standardUserDefaults] objectForKey:url]) {
 
 <div align ="center">
 
-<img src = "http://upload-images.jianshu.io/upload_images/2822163-925eb5564821ceb9.png" align ="center"/>
+	<img src = "http://upload-images.jianshu.io/upload_images/2822163-925eb5564821ceb9.png"/>
+	
+	<img src = "http://upload-images.jianshu.io/upload_images/2822163-70ac87aa2d2199d1.jpg" />
+	
+	<img src = "http://upload-images.jianshu.io/upload_images/2822163-add2e3fc3735a6e7.gif" />
 
-<img src = "http://upload-images.jianshu.io/upload_images/2822163-70ac87aa2d2199d1.jpg" align ="center"/>
-
-<img src = "http://upload-images.jianshu.io/upload_images/2822163-add2e3fc3735a6e7.gif" align ="center"/>
 </div>
 
-#### [Github 测试Demo 点击下载](https://github.com/90candy/GetImageSizeWithURL)
+
+**简书地址：**https://www.jianshu.com/p/854dc9c810c9
 
 
 <div align ="center">
-
-	<img src = "http://upload-images.jianshu.io/upload_images/2822163-089602958ae7072a.png" align ="center"/>
+	<img src = "http://upload-images.jianshu.io/upload_images/2822163-089602958ae7072a.png"/>
 </div>
