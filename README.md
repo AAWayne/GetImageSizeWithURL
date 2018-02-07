@@ -4,9 +4,7 @@
 
 > 本文并非原创，仅为做一笔记，[小怪兽饲养猿](http://www.jianshu.com/p/9984c37f3f54)原作方法有些许瑕疵，不过在它得评论区已经有热心网友给出了完美的解决方案，所以我就借此整理到我的简书，希望大家见怪莫怪。
 
-##### 本文相关资料链接（关于方向问题即宽高相反）
-1、CGImageSource对图像数据读取任务的抽象：http://www.tanhao.me/pieces/1019.html
-2、iOS开发中图片方向的获取与更改：http://www.cnblogs.com/gaoxiaoniu/p/5329834.html
+**简书地址：**https://www.jianshu.com/p/854dc9c810c9
 
 ##### 一行代码获取图片尺寸：
 ```
@@ -131,22 +129,19 @@ if (![[NSUserDefaults standardUserDefaults] objectForKey:url]) {
 	[[NSUserDefaults standardUserDefaults] setObject:@(imgH) forKey:url];
 }
 ```
+
+##### 本文相关资料链接（关于方向问题即宽高相反）
+1、CGImageSource对图像数据读取任务的抽象：http://www.tanhao.me/pieces/1019.html
+2、iOS开发中图片方向的获取与更改：http://www.cnblogs.com/gaoxiaoniu/p/5329834.html
+
 ##### 以下是png、jpg、gif的图片素材:
 
-<div align ="center">
-
-	<img src = "http://upload-images.jianshu.io/upload_images/2822163-925eb5564821ceb9.png"/>
-	
-	<img src = "http://upload-images.jianshu.io/upload_images/2822163-70ac87aa2d2199d1.jpg" />
-	
-	<img src = "http://upload-images.jianshu.io/upload_images/2822163-add2e3fc3735a6e7.gif" />
-
+<div align="center">
+	<img src="http://upload-images.jianshu.io/upload_images/2822163-925eb5564821ceb9.png"/>
+	<img src="http://upload-images.jianshu.io/upload_images/2822163-70ac87aa2d2199d1.jpg" />
+	<img src="http://upload-images.jianshu.io/upload_images/2822163-add2e3fc3735a6e7.gif" />
 </div>
 
-
-**简书地址：**https://www.jianshu.com/p/854dc9c810c9
-
-
-<div align ="center">
-	<img src = "http://upload-images.jianshu.io/upload_images/2822163-089602958ae7072a.png"/>
+<div align="center">
+	<img src="http://upload-images.jianshu.io/upload_images/2822163-089602958ae7072a.png"/>
 </div>
