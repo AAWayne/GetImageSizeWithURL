@@ -2,10 +2,6 @@
 
 #### 根据网络图片URL链接获取图片的尺寸（宽高）
 
-> 本文并非原创，仅为做一笔记，[小怪兽饲养猿](http://www.jianshu.com/p/9984c37f3f54)原作方法有些许瑕疵，不过在它得评论区已经有热心网友给出了完美的解决方案，所以我就借此整理到我的简书，希望大家见怪莫怪。
-
-**简书地址：https://www.jianshu.com/p/854dc9c810c9**
-
 ##### 一行代码获取图片尺寸：
 ```
 CGSize size = [UIImage getImageSizeWithURL:@"http://upload-images.jianshu.io/upload_images/2822163-70ac87aa2d2199d1.jpg"];
@@ -135,6 +131,8 @@ if (![[NSUserDefaults standardUserDefaults] objectForKey:url]) {
 1、CGImageSource对图像数据读取任务的抽象：http://www.tanhao.me/pieces/1019.html
 
 2、iOS开发中图片方向的获取与更改：http://www.cnblogs.com/gaoxiaoniu/p/5329834.html
+
+**本文简书地址：https://www.jianshu.com/p/854dc9c810c9**
 
 ##### 以下是png、jpg、gif的图片素材:
 
